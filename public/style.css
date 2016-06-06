@@ -1,0 +1,28 @@
+.container{
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  width: 80%;
+  margin: auto;
+}
+h1{
+  text-align: center;
+  text-decoration: underline;
+}
+.numeros{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content:center;
+  width: 500px;
+  margin: auto;
+}
+.numerosOrder{
+  padding: 10px;
+  width: 15%;
+  text-align: center;
+}
+.numerosOrder:first-child{
+  border: 5px solid;
+  transition: border 0.1s linear, box-shadow 0.1s linear;
+}
+.active{
+    border-color: #000;
+}
