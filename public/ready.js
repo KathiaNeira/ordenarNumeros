@@ -26,7 +26,7 @@ $(document).ready(function() {
         },
         ordenarNumeros:function(){
         	console.log("ordenar los numeros");
-          dom.fruits.sort(function(a, b) {
+          dom.array.sort(function(a, b) {
             return a - b;
           });
           console.log(dom.array);
