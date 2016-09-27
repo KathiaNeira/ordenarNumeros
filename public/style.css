@@ -26,3 +26,7 @@ h1{
 .active{
     border-color: #000;
 }
+.numberItem{
+  padding: 10px 20px;
+  font-size: 30px;
+}
