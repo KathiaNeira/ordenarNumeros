@@ -14,7 +14,7 @@
 
   var afterCatchDom = function() {
     functions.mostrarNumeros();
-    st.time = setInterval(functions.ordenarNumeros, 2000);
+    st.time = setInterval(functions.ordenarNumeros, 500);
   };
   var functions={};
 
@@ -29,8 +29,10 @@
   //Método burbuja para el recorrido del array
   functions.ordenarNumeros=()=>{
     if (st.i < st.arreglo.length) {
+      //functions.accommodateNumber();
       if (st.j < st.arreglo.length - st.i) {
         functions.compareNumPrevToNext()
+        functions.animateNumberColor();
         st.j++;
       } else{
         st.j = 0;
@@ -39,7 +41,6 @@
     }else{
       clearInterval(st.time);
     }
-    functions.accommodateNumber();
   };
 
   //Comparando número con número para utilizarlo en el método burbuja
@@ -58,24 +59,37 @@
     var menorNumber = $('.numberItem').eq(indexofMayorNumber);
     var mayorNumber =$('.numberItem').eq(indexofMenorNumber);
 
-    // var positionMayorNumber = menorNumber.position();;
+    console.log('medida menorNumber', menorNumber.width())
+    console.log("menorNumber", menorNumber);
+    console.log("mayorNumber", mayorNumber);
+    //var positionMayorNumber = menorNumber.position();;
     var positionMenorNumber = menorNumber.position();
     var positionMayorNumber = mayorNumber.position();
     var left = positionMenorNumber.left;
 
-    var distance = positionMenorNumber.left-positionMayorNumber.left +13;
-    menorNumber.animate({
-      "top" : "-80"
-    }, 2000, function(){
-      mayorNumber.animate({
-        "left" : distance
-      }, 2000, function(){
-        menorNumber.animate({
-          "right": distance,
-          "top": '+=80'
-        }, 2000);
-      });
-    });
+  //  console.log('letfMenorNum', letfMenorNum)
+    //console.log('positionMayorNumber', positionMayorNumber, 'positionMenorNumber', positionMenorNumber)
+
+    var ditanceRight = positionMenorNumber+positionMenorNumber
+
+    var distance = positionMenorNumber.left-positionMayorNumber.left;
+    var total=0;
+    total+=distance;
+    console.log('total', total);
+
+    console.log('distance', distance);
+    // menorNumber.animate({
+    //   "top" : "-80"
+    // }, 200, function(){
+    //   mayorNumber.animate({
+    //     "left" : distance
+    //   }, 200, function(){
+    //     menorNumber.animate({
+    //       "right": letfMenorNum,
+    //       "top": '+=80'
+    //     }, 200);
+    //   });
+    // });
     menorNumber.css('border', '5px solid red');
     mayorNumber.css('border', '5px solid black');
   };
@@ -83,12 +97,11 @@
 
   //Reutilizando la función para hacerla una y otra vez
   functions.accommodateNumber=()=>{
-    $(".numeros").empty();
-    for (var x = 0; x < st.arreglo.length; x++) {
-        functions.animateNumberColor();
-        //$(".numeros").append('<div class="numberItem">' + st.arreglo[x] + '</div>');
-    }
-
+    //$(".numeros").empty();
+    console.log('st.arreglo[st.j]', st.arreglo[st.j], 'st.arreglo[st.j+1]', st.arreglo[st.j+1]);
+    console.log('hacemos la animacion');
+    functions.animateNumberColor();
+    return false;
   };
 
   var initialize = function() {
